@@ -53,6 +53,35 @@
 \RequirePackage{tocloft}
 \RequirePackage{fullpage}
 
+
+
+
+% No horizontal rule below the header (fancyhdr package)
+\renewcommand{\headrulewidth}{0pt}
+
+% define page layout lengths
+\setlength{\textheight}{9in} 
+\setlength{\textwidth}{6.5in}
+\setlength{\topmargin}{-0.65in}
+\setlength{\headheight}{24pt}
+\setlength{\footskip}{0in}
+\setlength{\oddsidemargin}{0in} 
+\setlength{\evensidemargin}{0in}
+\setlength{\parskip}{1em}
+\setlength{\parindent}{0.0em}
+\setlength{\footskip}{0.5in}
+
+%%%% bibliography settings  %%%%
+\renewcommand\bibsection{\sbirsection{\refname}{}}
+\bibfont{\small}
+\setlength{\bibsep}{2pt}
+
+%%%% table of contents settings  %%%%
+\setlength\cftparskip{2pt}
+
+
+
+
 % define newcommands for proposal information
 \newcommand*{\projectname}[1]{\def\fromprojectname{#1}}
 \newcommand*{\phase}[1]{\def\fromphase{#1}}
@@ -69,6 +98,35 @@
 \newcommand*{\primaryrecipient}[1]{\def\fromprimaryrecipient{#1}}
 \newcommand*{\secondaryrecipient}[1]{\def\fromsecondaryrecipient{#1}}
 \newcommand*{\expirydate}[1]{\def\fromexpirydate{#1}}
+
+\fancypagestyle{proprietary}{
+  \lhead{}
+  \chead{
+  \begin{center}
+  {\large
+  {\bf R \& D Project Summary} \\~\\
+  {\bf \fromprojectname~ Phase~ \fromphase~ ---~ \@date}
+  }
+  \end{center}
+  }
+  \rhead{}
+}
+
+%\rhead{\color{LeTigre}Topic No: \fromtopicnum~\\}
+%\chead{\color{LeTigre}\scshape\fromcompany~\\~\\ Proposal No: \fromproposalnum}
+%\lhead{\color{LeTigre}\scshape{Proprietary}~\\}
+%\lfoot{\color{LeTigre}\scshape{Proprietary}}
+%\cfoot{\color{LeTigre}\vspace*{-1.25em}{\scshape\fromproposaltitle}~\\~\\ \rm\thepage~\\}
+%\rfoot{\color{LeTigre}\scshape\fromproposaltype}
+
+%\chead{
+%  \begin{center}
+%  {\large
+%  {\bf R \& D Project Summary} \\~\\
+%  {\bf \fromprojectname~ Phase~ \fromphase~ ---~ \@date}
+%  }
+%  \end{center}
+%}
 
 \renewcommand\maketitle{\begin{titlepage}%
   \let\footnotesize\small
@@ -170,4 +228,5 @@
   \global\let\date\relax
   \global\let\and\relax
 }
+
 
