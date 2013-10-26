@@ -53,9 +53,6 @@
 \RequirePackage{tocloft}
 \RequirePackage{fullpage}
 
-
-
-
 % No horizontal rule below the header (fancyhdr package)
 \renewcommand{\headrulewidth}{0pt}
 
@@ -70,6 +67,7 @@
 \setlength{\parskip}{1em}
 \setlength{\parindent}{0.0em}
 \setlength{\footskip}{0.5in}
+\setlength{\headsep}{35pt}
 
 %%%% bibliography settings  %%%%
 \renewcommand\bibsection{\sbirsection{\refname}{}}
@@ -78,9 +76,6 @@
 
 %%%% table of contents settings  %%%%
 \setlength\cftparskip{2pt}
-
-
-
 
 % define newcommands for proposal information
 \newcommand*{\projectname}[1]{\def\fromprojectname{#1}}
@@ -94,22 +89,24 @@
 \newcommand*{\state}[1]{\def\fromstate{#1}}
 \newcommand*{\zipcode}[1]{\def\fromzipcode{#1}}
 \newcommand*{\phone}[1]{\def\fromphone{#1}}
-\newcommand*{\reportingperiod}[1]{\def\fromreportingperiod{#1}}
+\newcommand*{\reportperiod}[1]{\def\fromreportperiod{#1}}
 \newcommand*{\primaryrecipient}[1]{\def\fromprimaryrecipient{#1}}
 \newcommand*{\secondaryrecipient}[1]{\def\fromsecondaryrecipient{#1}}
 \newcommand*{\expirydate}[1]{\def\fromexpirydate{#1}}
+\newcommand*{\reportyear}[1]{\def\fromreportyear{#1}}
+\newcommand*{\reportmonth}[1]{\def\fromreportmonth{#1}}
 
-\fancypagestyle{proprietary}{
+\fancypagestyle{plain}{
   \lhead{}
   \chead{
-  \begin{center}
   {\large
   {\bf R \& D Project Summary} \\~\\
-  {\bf \fromprojectname~ Phase~ \fromphase~ ---~ \@date}
+  {\bf \fromprojectname~ Phase~ \fromphase~ ---~ \fromreportmonth~ \fromreportyear}
   }
-  \end{center}
   }
   \rhead{}
+  \lfoot{Subject to SBIR Data Rights}
+  \rfoot{Report Date:~ \today }
 }
 
 %\rhead{\color{LeTigre}Topic No: \fromtopicnum~\\}
@@ -132,15 +129,13 @@
   \let\footnotesize\small
   \let\footnoterule\relax
   \let \footnote \thanks
-  %\null\vfil
-  %\vskip 60\p@
   \begin{center}
   {\large
   {\bf R \& D Project Summary} \\~\\
-  {\bf \fromprojectname~ Phase~ \fromphase~ ---~ \@date}
+  {\bf \fromprojectname~ Phase~ \fromphase~ ---~ \fromreportmonth~ \fromreportyear}
   }
   \end{center}
-  \vskip 40\p@
+  \vskip 35\p@
 
   \hrulefill
   
@@ -156,7 +151,7 @@
   	{\bf Project Title:} &				{\bf \@title} \newline
   										{\bf Phase~ \fromphase~ STTR} \\
 	{\bf Report Date: } &				{\bf \@date} \\
-	{\bf Reporting Period: } &			{\bf \fromreportingperiod} \\  	
+	{\bf Reporting Period: } &			{\bf \fromreportmonth~ \fromreportperiod, \fromreportyear } \\  	
 	{\bf Submitted By: } &				{\bf \@author, PI } \\
 	{\bf Distributed To:} &				{\bf \fromprimaryrecipient} \newline
 										{\bf \fromsecondaryrecipient} \\
