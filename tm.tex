@@ -38,13 +38,46 @@ This system will provision infrastructure on demand at various levels of service
 
 \paragraph{Denial of Service} Denial of service attacks are common and expected within large scale, visible systems.  Government and military systems must be designed to handle large scale denial of service attacks as they are guaranteed when engaged with a hostile power in any way.  In fact, denial of service attacks are commonplace today and typically used by extra-national political organizations and criminal gangs toward a variety of ends, ranging from extortion to simple bragging rights.  Though all components of Nublu are susceptible to Denial of Service attacks, some specific parts of Nublu are more vulnerable than others.  Specific common services, for example, like monitoring and management can be exploited to bring the system down.  ICAM and PKI systems can be used to bring down the system as well if not appropriately hardened.
 
-\paragraph{Insider Threat} Insider threat issues are notoriously difficult for organizations to protect themselves from.  Generally, staff vetting and background checks are primary methods through which organizations try to address insider threat, with some success, though there have been well publicised failures over the past few years with this approach.  Monitoring and usage data collection, as well as observing the principle of least privilege, are common contributors to lessening the risk of insider threat.  Specific insider threat protections are outside of the scope of Nublu, but some of the associated monitoring and management systems can very well be used to contribute to insider threat detection.  Supporting robust authentication and authorization capabilities is also paramount.
+\paragraph{Insider Threat} Insider threat issues are notoriously difficult for organizations to protect themselves from.  Generally, staff vetting and background checks are primary methods through which organizations try to address insider threat, with some success, though there have been well publicized failures over the past few years with this approach.  Monitoring and usage data collection, as well as observing the principle of least privilege, are common contributors to lessening the risk of insider threat.  Specific insider threat protections are outside of the scope of Nublu, but some of the associated monitoring and management systems can very well be used to contribute to insider threat detection.  Supporting robust authentication and authorization capabilities is also paramount.
 
 \paragraph{Service Abuse} Cloud systems can be compromised and used toward unauthorized ends.  For example, virtual machines (VMs) running within a cloud environment can be used by malicious actors to store malware, stolen digital property, or to attack stolen encrypted information~\footcite{ZhJuReRi:12}.  Nublu is vulnerable to this kind of abuse in all three service layers.  Data storage can be abused to save illicit information, just as virtualized application servers can be compromised for computational horsepower or as pivot points for distributed denial of service attacks.  Likewise, networks can be compromised to transfer stolen digital goods or to hide unauthorized communication.
 
 \paragraph{Due Diligence} Due diligence addresses the need for organizations to adopt cloud computing systems with a clear understanding of the implications of this kind of technology.  Organizations will frequently migrate operations into cloud environments without organizational expertise in the technology or management issues that will arise, leading to mistakes that could have been avoided.  This is primarily a management issue with little impact on Nublu.
 
 \paragraph{Shared Technology} Multi-tenant systems introduce new vulnerabilities into distributed computing systems.  Whether the vulnerabilities enable tenant-to-tenant attacks or tenant-to-infrastructure attacks, Nublu is very vulnerable to thse kinds of threats.  Nublu is heavily virtualized --- hosts are virtualized, networks are virtualized, and data repositories are virtualized to maximize flexibility and efficiency.
+
+\paragraph{Impact on Nublu}
+The majority of these threats impact Nublu work and need to be handled by security controls designed into the system rather than controls injected into Nublu as an afterthought.  The only control that does not apply to the Nublu system is {\sl Due Diligence}, in the context of the definition supplied by the CSA~\footcite{csa-noni:13}.  We will then categorize other threats by actual risk, as opposed to perceived risk, and then by alleviating security controls, deliberately not addressing threats that have controls that are outside of the scope of Nublu.
+
+This cursory analysis trims the list of critical threats from eight to four.  First, both {\sl Data Loss} and {\sl Service Abuse} are rectified via controls that are outside toe scope of Nublu.  Potential data loss is alleviated via data retention and risk policies, environment assessments, and equipment location, all of which are tied to specific production environments the analysis of which are outside of the scope of Nublu work.  Service abuse controls include legal preparation and acceptable use policies, again areas outside of Nublu scope.  Lower priority items, threats with lower actual risk, include {\sl Insider Threat} and {\sl Shared Technology}.  These will be lower priority threats for the team to address.
+
+This leaves a group of four priority threats we must address within Nublu, including {\sl Data Breaches}, {\sl Hijacking}, {\sl Interfaces}, and {\sl Denial of Service}.  Looking over these threats, we have a list of baseline controls defined by the CSA~\footcite{csa-ccmv3:13} that apply to Nublu:
+
+\begin{itemize}
+\item {\bf CCM DG-04:} {\sl Data Governance --- Retention Policy}
+\item {\bf CCM DG-05:} {\sl Data Governance --- Secure Disposal}
+\item {\bf CCM DG-06:} {\sl Data Governance --- Non-Production Data}
+\item {\bf CCM DG-07:} {\sl Data Governance --- Information Leakage}
+\item {\bf CCM DG-08:} {\sl Data Governance --- Risk Assessments}
+\item {\bf CCM IS-04:} {\sl Information Security --- Baseline Requirements}
+\item {\bf CCM IS-07:} {\sl Information Security --- User Access Policy}
+\item {\bf CCM IS-08:} {\sl Information Security --- User Access Restriction/Authorization}
+\item {\bf CCM IS-09:} {\sl Information Security --- User Access Revocation}
+\item {\bf CCM IS-10:} {\sl Information Security --- User Access Reviews}
+\item {\bf CCM IS-18:} {\sl Information Security --- Encryption}
+\item {\bf CCM IS-19:} {\sl Information Security --- Encryption Key Management}
+\item {\bf CCM IS-22:} {\sl Information Security --- Incident Management}
+\item {\bf CCM OP-03:} {\sl Operations Management --- Capacity/Resource Planning}
+\item {\bf CCM RS-07:} {\sl Resiliency --- Equipment Power Failures}
+\item {\bf CCM SA-02:} {\sl Security Architecture --- User ID Credentials}
+\item {\bf CCM SA-03:} {\sl Security Architecture --- Data Security/Integrity}
+\item {\bf CCM SA-04:} {\sl Security Architecture --- Application Security}
+\item {\bf CCM SA-06:} {\sl Security Architecture --- Production/Non-Production Environments}
+\item {\bf CCM SA-07:} {\sl Security Architecture --- Remote User Multi-Factor Authentication}
+\item {\bf CCM SA-14:} {\sl Security Architecture --- Audit Logging / Intrusion Detection}
+\end{itemize}
+
+Note that this is not a list of all controls and approaches that must be used to provide assured information sharing.  Rather, this is a list of controls that must be in place or supported to provide a competent security baseline from which we can begin Nublu development.  Note, not all controls in this list are within the scope of Nublu work.  While that may be the case, the Nublu system must identify the interfaces and support those external controls require, and implement those interfaces and whatever support is needed to facilitate external control integration.  Controls that are within Nublu scope must be implemented at a technology readiness level commensurate with the Nublu project as a whole.
 
 \footbibliography{bib/tm}
 \footbibliographystyle{plain}
