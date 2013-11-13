@@ -7,6 +7,7 @@
 \usepackage{url}
 \usepackage{wrapfig}
 \usepackage{footbib}
+\usepackage{fullpage}
 \author{Christopher C. Lamb}
 \begin{document}
 
@@ -16,12 +17,6 @@ Currently, the security of networked infrastructures tends to be managed statica
 
 The ability to quickly, securely, and reliably share information across security domains is a capability that must be developed in order to ensure mission success in Department of Defense (DoD)cloud-based network-centric environments. We propose the continued development of an assured information-sharing framework for cloud-based systems that leverages our ongoing work in the areas of policy-based usage management and semantic interoperability. The development of this framework involves research related to the creation of a novel approach to information sharing that treats security as a commodity that can be dynamically provisioned within the cloud, along with other cloud resources.
 
-\paragraph{Policy Tools.} First, we must develop the technologies that allow administrators to easily generate policies that leverage cloud computing-specific capabilities. That is, additional research is needed to develop a set of cloud computing-specific security policies that can be encoded into the extensible markup language (XML) policy format we currently use. This work will include extending our existing policy generator capabilities to address these cloud specific policies.
-
-\paragraph{Dynamic Evaluation.} In addition, the usage management framework must be extended to include the ability to formally interpret and enforce cloud-specific policies. These capabilities must include the ability to dynamically monitor the policies associated with resources in use in order to immediately react to changes. We envision this research including the development of a satellite usage management capability that operates in each VM. This approach will also require the development of capabilities that allow the global usage management mechanism to communicate in an assured manner with the usage management mechanisms executing in the individual VMs, providing comprehensive usage control across a distributed cloud environments.
-
-\paragraph{Enforcement.} Finally, policy enforcement mechanisms are needed at all levels of the cloud hierarchy to control how data and services are used. For example, if a data item is specified at a certain level of sensitivity, the usage management mechanisms must ensure that this item is not stored or routed through the cloud infrastructure in a way that would violate the policies associated with its sensitivity level. In order to accomplish this, our approach maintains clean separations between policy specification, interpretation and enforcement. This allows the framework to leverage security capabilities that are currently available or in development by other information security research groups.
-
 \begin{wrapfigure}{r}{.5\textwidth}
 \begin{center}
 \includegraphics[width=.47\textwidth]{./images/network.pdf}
@@ -29,6 +24,12 @@ The ability to quickly, securely, and reliably share information across security
 \caption{A notional view of the Nublu system, showing various required and provided services in an end-to-end perspective.}
 \label{fig:network}
 \end{wrapfigure}
+
+\paragraph{Policy Tools.} First, we must develop the technologies that allow administrators to easily generate policies that leverage cloud computing-specific capabilities. That is, additional research is needed to develop a set of cloud computing-specific security policies that can be encoded into the extensible markup language (XML) policy format we currently use. This work will include extending our existing policy generator capabilities to address these cloud specific policies.
+
+\paragraph{Dynamic Evaluation.} In addition, the usage management framework must be extended to include the ability to formally interpret and enforce cloud-specific policies. These capabilities must include the ability to dynamically monitor the policies associated with resources in use in order to immediately react to changes. We envision this research including the development of a satellite usage management capability that operates in each VM. This approach will also require the development of capabilities that allow the global usage management mechanism to communicate in an assured manner with the usage management mechanisms executing in the individual VMs, providing comprehensive usage control across a distributed cloud environments.
+
+\paragraph{Enforcement.} Finally, policy enforcement mechanisms are needed at all levels of the cloud hierarchy to control how data and services are used. For example, if a data item is specified at a certain level of sensitivity, the usage management mechanisms must ensure that this item is not stored or routed through the cloud infrastructure in a way that would violate the policies associated with its sensitivity level. In order to accomplish this, our approach maintains clean separations between policy specification, interpretation and enforcement. This allows the framework to leverage security capabilities that are currently available or in development by other information security research groups.
 
 \paragraph{Security Primitives and Control.} In general, a DoD cloud computing infrastructure may be highly heterogeneous and used by multiple parties that may be involved in multiple missions, leading to highly complex usage patterns and security requirements. Thus, our Phase II research will continue to investigate the use of control theory in order to ensure that multiple missions can be simultaneously satisfied within a given infrastructure. Our next steps in this area involve investigating VM performance control capabilities that enable monitoring of central processing unit utilization and the development of appropriate control algorithms that automatically add or remove VMs to meet performance requirements within a given security posture.
 
@@ -123,6 +124,6 @@ This leaves a group of four priority threats we must address within Nublu, inclu
 Note that this is not a list of all controls and approaches that must be used to provide assured information sharing.  Rather, this is a list of controls that must be in place or supported to provide a competent security baseline from which we can begin Nublu development.  Note, not all controls in this list are within the scope of Nublu work.  While that may be the case, the Nublu system must identify the interfaces and support those external controls require, and implement those interfaces and whatever support is needed to facilitate external control integration.  Controls that are within Nublu scope must be implemented at a technology readiness level commensurate with the Nublu project as a whole.
 
 \footbibliography{bib/tm}
-\footbibliographystyle{plain}
+\footbibliographystyle{ieeetr}
 
 \end{document}
