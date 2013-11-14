@@ -15,7 +15,7 @@
 \label{sec:intro}
 Currently, the security of networked infrastructures tends to be managed statically. That is, security requirements are developed and implemented within the networking environment, and all of the information that traverses the network will have these hard-coded security policies applied to it. Thus, the security policies applied to all information is ?one-size-fits-all,? and can typically only be modified by network administrators. The result is that if there is a mismatch between mission requirements and network security, the network resources simply cannot be used to service the mission.
 
-The ability to quickly, securely, and reliably share information across security domains is a capability that must be developed in order to ensure mission success in Department of Defense (DoD)cloud-based network-centric environments. We propose the continued development of an assured information-sharing framework for cloud-based systems that leverages our ongoing work in the areas of policy-based usage management and semantic interoperability. The development of this framework involves research related to the creation of a novel approach to information sharing that treats security as a commodity that can be dynamically provisioned within the cloud, along with other cloud resources.
+The ability to quickly, securely, and reliably share information across security domains is a capability that must be developed in order to ensure mission success in Department of Defence (DoD)cloud-based network-centric environments. We propose the continued development of an assured information-sharing framework for cloud-based systems that leverages our ongoing work in the areas of policy-based usage management and semantic interoperability. The development of this framework involves research related to the creation of a novel approach to information sharing that treats security as a commodity that can be dynamically provisioned within the cloud, along with other cloud resources.
 
 \begin{wrapfigure}{r}{.5\textwidth}
 \begin{center}
@@ -33,18 +33,24 @@ The ability to quickly, securely, and reliably share information across security
 
 \paragraph{Security Primitives and Control.} In general, a DoD cloud computing infrastructure may be highly heterogeneous and used by multiple parties that may be involved in multiple missions, leading to highly complex usage patterns and security requirements. Thus, our Phase II research will continue to investigate the use of control theory in order to ensure that multiple missions can be simultaneously satisfied within a given infrastructure. Our next steps in this area involve investigating VM performance control capabilities that enable monitoring of central processing unit utilization and the development of appropriate control algorithms that automatically add or remove VMs to meet performance requirements within a given security posture.
 
-Additional security issues associated with cloud computing that will be considered as a part of this usage management/control-theoretic framework include joint tenancy of a not trusted user?s VM on the same server hardware, data remnants in cloud storage repositories and VMs, and the trust associated with cloud provider?s administrators (who have complete access to user data and VMs). Some of these concerns could potentially be addressed with usage policies; however, further research is needed to explore how the proposed usage management framework, in conjunction with
+Additional security issues associated with cloud computing that will be considered as a part of this usage management/control-theoretic framework include joint tenancy of a not trusted user's VM on the same server hardware, data remnants in cloud storage repositories and VMs, and the trust associated with cloud provider?s administrators (who have complete access to user data and VMs). Some of these concerns could potentially be addressed with usage policies; however, further research is needed to explore how the proposed usage management framework, in conjunction with
 
 \section{Operational Scenarios and Requirements}
 \label{section:req-scen}
+Nublu is intended to provide assured information sharing capabilities over private and public infrastructures.  To do this, we will provide a secure virtualized system protected by integrated policy-based usage management integrated with key encryption technologies.  Virtualization will span the entire system, from data repositories to communication networks to application servers to clients, when possible.
+
+We will use a simple model to begin development.  We have three distinct layers --- {\sl application}, {\sl logical}, and {\sl physical} layers. This application layer consists of {\sl data repositories}, {\sl communication networks}, {\sl application servers}, and {\sl clients}.  The logical layer contains {\sl images} and {\sl instances} running in {\sl containers}, while the physical layer contains all physical hardware and software required to enable the logical layer. 
 
 \subsection{Abstract Requirements}
 \label{sec:requirements}
 
+
 \subsection{Selected Scenarios}
 \label{sec:scenarios}
+We have specific scenarios that embody information sharing that we can use to highlight the kind of functionality the system needs to produce in order to provide assured cloud-based information sharing.  These scenarios have distributed communication requirements, use encryption, have multiple parties of various trust levels and need to know, and use both human and machine agents.
 
 \paragraph{Streaming Data From Drone}
+This is a data ingestion scenario.  Data from some kind of drone, manned or unmanned, is pulled into a cloud-centric distribution system for storage and processing.
 
 \paragraph{Streaming Data Consumption by Coalition Partner}
 
