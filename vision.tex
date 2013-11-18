@@ -39,8 +39,6 @@ Additional security issues associated with cloud computing that will be consider
 \label{section:req-scen}
 Nublu is intended to provide assured information sharing capabilities over private and public infrastructures.  To do this, we will provide a secure virtualized system protected by integrated policy-based usage management integrated with key encryption technologies.  Virtualization will span the entire system, from data repositories to communication networks to application servers to clients, when possible.
 
-We will use a simple model to begin development.  We have three distinct layers --- {\sl application}, {\sl logical}, and {\sl physical} layers. This application layer consists of {\sl data repositories}, {\sl communication networks}, {\sl application servers}, and {\sl clients}.  The logical layer contains {\sl images} and {\sl instances} running in {\sl containers}, while the physical layer contains all physical hardware and software required to enable the logical layer. 
-
 \subsection{Abstract Requirements}
 \label{sec:requirements}
 
@@ -49,21 +47,41 @@ We will use a simple model to begin development.  We have three distinct layers 
 \label{sec:scenarios}
 We have specific scenarios that embody information sharing that we can use to highlight the kind of functionality the system needs to produce in order to provide assured cloud-based information sharing.  These scenarios have distributed communication requirements, use encryption, have multiple parties of various trust levels and need to know, and use both human and machine agents.
 
-\paragraph{Streaming Data From Drone} This is a data ingestion scenario.  Data from some kind of drone, manned or unmanned, is pulled into a cloud-centric distribution system for storage and processing.
+\paragraph{Streaming Data From Drone.} This is a data ingestion scenario.  Data from some kind of drone, manned or unmanned, is pulled into a cloud-centric distribution system for storage and processing.
 
-\paragraph{Streaming Data Consumption by Coalition Partner} In this scenario, a coalition partner is streaming video from a data source to some type of client. The video itself is not classified, but it is sensitive, and is accompanied by specific usage and routing policies.
+\paragraph{Streaming Data Consumption by Coalition Partner.} In this scenario, a coalition partner is streaming video from a data source to some type of client. The video itself is not classified, but it is sensitive, and is accompanied by specific usage and routing policies.
 
-\paragraph{Block Data Transfer within Datacenter} Datacenters in cloud environments usually host block storage for cloud clients on systems that are distinct from the computational systems themselves.  Here, filesystem blocks are transferred from a block store to a client.  The blocks themselves are categorized as sensitive, and have associated usage and management policies.
+\paragraph{Block Data Transfer within Datacenter.} Datacenters in cloud environments usually host block storage for cloud clients on systems that are distinct from the computational systems themselves.  Here, filesystem blocks are transferred from a block store to a client.  The blocks themselves are categorized as sensitive, and have associated usage and management policies.
 
-\paragraph{Automated Information Consumption by Allied System Agent}
+\paragraph{Automated Information Consumption by Remote System Agent.} Here, a system agent on a remote system acquires data from a variety of cloud services for analysis.  The agent itself is authenticated and authorized to access information, and the secondary data resulting from the analysis is saved and protected by usage policies that provide provenance information pointing to the original data used.
 
-\paragraph{U.S. Operator Information Creation}
+\paragraph{U.S. Operator Information Creation.} In this scenario, a remote operator in the field creates some kind of data record.  This record can be either an audio, video, or document-centric record.  The information is saved with a default policy based on information gathered automatically from the creation location and user authentication information as well as a small amount of information entered by the user.
 
 \section{Solution Overview}
 \label{sec:overview}
+We will use a simple model to begin development.  We have three distinct layers --- {\sl application}, {\sl logical}, and {\sl physical} layers. This application layer consists of {\sl data repositories}, {\sl communication networks}, {\sl application servers}, and {\sl clients}.  The logical layer contains {\sl images} and {\sl instances} running in {\sl containers}, while the physical layer contains all physical hardware and software required to enable the logical layer.
+
+These can be combined into common {\sl patterns}, including:
+\begin{itemize}
+\item Intra-datacenter
+\item Inter-datacenter
+\item Datacenter to cache
+\item Datacenter to application server
+\item Datacenter to Client
+\item Cache to application server
+\item Cache to client
+\end{itemize}
+All these communication patterns have distinct {\sl trust profiles}.
 
 \subsection{Major Features}
 \label{sec:features}
+The major system features differentiating this approach from other information sharing approaches is the scale of the system, the system's flexibility, and integrated content usage management.
+
+\paragraph{System Scale.} Unlike other information environments like SIPRNet or JWICS, this system will prototype the ability to store information from a single system at a variety of classification and sensitivity levels via integrated encryption.  Furthermore, this system will operate as a cloud computing environment with the scalability that implies~\footcite{nist-sp-800-145}.
+
+\paragraph{System Flexibility.} The system will allow policies to be evaluated within a dynamic context.  For example, under cases of duress, the system may elect to transmit sensitive information to users that would generally not be allowed access to that information.  This information would be shared in such a way that it could be retracted at a later date, and the system would create traceable records outlining which users received the information.  In addition to this information management flexibility, the system will also support the kind of operational flexibility expected of cloud systems~\footcite{nist-sp-800-145}.
+
+\paragraph{Content Usage Management.} Nublu will enable management of information content throughout the system and information life-cycle.
 
 \section{Threat Model}
 \label{sec:threat-model}
