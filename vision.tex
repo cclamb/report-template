@@ -101,6 +101,11 @@ All these communication patterns have distinct {\sl trust profiles}.
 
 \paragraph{Content Usage Management.} Nublu will enable management of information content throughout the system and information life-cycle.
 
+\subsubsection{Within the Datacenter}
+Modern computational infrastructures supporting virtualization have changed radically from the types of server-class systems used in the past.  Systems from a decade ago would be more integrated and have physical capabilities built directly into the physical system that virtualized systems do not have today. For example, a server system without a generous amount of secondary (i.e. disk) storage would be unheard of ten years ago.  Today, this absence of on-board non-volatile is common in cloud systems, and is expected when provisioning systems from commercial providers.  In fact, this has given system designers more options when designing virtualized hosts, allowing them to select the performance of virtual secondary storage from a range of performance and price points.
+
+To understand how to partition images within a cloud datacenter, we must have some idea of how a datacenter would typically be assembled.  These systems are partitioned into servers of various capabilties, providing a variety of services, including storage, processing, security, and network management.  These servers are stored within a rack, with a switch (i.e. a top-of-rack switch) handling local traffic within the rack.  Server densities, system power, and switch capabilities within and between racks may vary, but this construction pattern is typical of a single rack.
+
 %\section{Threat Model}
 %\label{sec:threat-model}
 %In order to understand the security controls needed for Nublu infrastructure, we first need to understand the threat landscape.  Today, the Cloud Security Alliance~\footcite{csa} maintains an up-to-date list of the most active security threats to cloud systems.  The most recent version, for 2013, outlines the nine most common security threats that exist today as well as security controls that can help alleviate the risk imposed by those threats~\footcite{csa-noni:13}.  Out threat model is based on this list of current cloud threats.
